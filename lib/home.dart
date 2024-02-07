@@ -215,12 +215,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home 2FA"),
+        title: Text("Home"),
+        backgroundColor: Colors.blue,
       ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/background_image.jpg"),
+            image: AssetImage("images/mobileback.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -230,7 +231,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               "Status: $wsweb",
-              style: TextStyle(fontSize: 20, color: Colors.white),
+              style: TextStyle(fontSize: 20, color: const Color.fromARGB(255, 0, 0, 0)),
             ),
             _isRecording
                 ? Column(
