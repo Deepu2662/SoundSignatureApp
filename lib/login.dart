@@ -35,7 +35,8 @@ class _LoginDemoState extends State<LoginDemo> {
         "username": email,
         "password": password,
       };
-      http.Response response = await http.post(Uri.parse(login_url), body: body);
+      http.Response response =
+          await http.post(Uri.parse(login_url), body: body);
       print(response.body);
       if (response.statusCode == 200) {
         Map<String, dynamic> data = jsonDecode(response.body);
@@ -60,14 +61,14 @@ class _LoginDemoState extends State<LoginDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login Page"),
+        title: const Text("Sound Signature"),
         backgroundColor: Colors.blue,
       ),
       body: Stack(
         children: [
           // Background Image
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("images/mobileback.jpg"),
                 fit: BoxFit.cover,
@@ -77,23 +78,24 @@ class _LoginDemoState extends State<LoginDemo> {
           SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SizedBox(height: 30),
-                Container(
-                  child: Text(
-                    "Login",
-                    style: TextStyle(fontSize: 32, color: const Color.fromARGB(255, 0, 0, 0)),
-                  ),
+                const SizedBox(height: 30),
+                const Text(
+                  "Login",
+                  style: TextStyle(
+                      fontSize: 32, color: Color.fromARGB(255, 0, 0, 0)),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: TextField(
-                    style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
-                    decoration: InputDecoration(
+                    style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Email',
                       hintText: 'Enter valid email id',
-                      labelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
-                      hintStyle: TextStyle(color: const Color.fromARGB(179, 0, 0, 0)),
+                      labelStyle:
+                          TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                      hintStyle: TextStyle(color: Color.fromARGB(179, 0, 0, 0)),
                       fillColor: Colors.white,
                       filled: true,
                     ),
@@ -103,16 +105,18 @@ class _LoginDemoState extends State<LoginDemo> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: TextField(
-                    style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                    style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                     obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Password',
                       hintText: 'Enter secure password',
-                      labelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
-                      hintStyle: TextStyle(color: const Color.fromARGB(179, 0, 0, 0)),
+                      labelStyle:
+                          TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                      hintStyle: TextStyle(color: Color.fromARGB(179, 0, 0, 0)),
                       fillColor: Colors.white,
                       filled: true,
                     ),
@@ -127,31 +131,30 @@ class _LoginDemoState extends State<LoginDemo> {
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(color: Colors.white, fontSize: 25),
                     ),
                   ),
                 ),
-                Container(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Register()),
-                      );
-                    },
-                    child: Text(
-                      "New Account - Register",
-                      style: TextStyle(fontSize: 18, color: const Color.fromARGB(255, 0, 0, 0)),
-                    ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Register()),
+                    );
+                  },
+                  child: const Text(
+                    "New Account - Register",
+                    style: TextStyle(
+                        fontSize: 18, color: Color.fromARGB(255, 0, 0, 0)),
                   ),
                 ),
               ],

@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     );
 
     channel.stream.listen(
-          (data) {
+      (data) {
         print("data is $data");
         Map<dynamic, dynamic> data1 = jsonDecode((data.toString()));
         String msg = data1['message'];
@@ -136,8 +136,8 @@ class _HomePageState extends State<HomePage> {
           request1.headers.addAll({"Authorization": "token $token"});
           if (Platform.isAndroid) {
             request1.fields.addAll({"aid": aid, "type": "mob"});
-            request1.files.add(
-                await http.MultipartFile.fromPath('audio', blobFilePath));
+            request1.files
+                .add(await http.MultipartFile.fromPath('audio', blobFilePath));
           } else {
             request1.fields.addAll({"aid": aid, "type": "web"});
             final uri = Uri.parse(blobFilePath);
@@ -194,10 +194,10 @@ class _HomePageState extends State<HomePage> {
 
     _ampTimer =
         Timer.periodic(const Duration(milliseconds: 200), (Timer t) async {
-          _amplitude = await _audioRecorder.getAmplitude();
-          print("Amplitude: ${_amplitude!.current}");
-          setState(() {});
-        });
+      _amplitude = await _audioRecorder.getAmplitude();
+      print("Amplitude: ${_amplitude!.current}");
+      setState(() {});
+    });
   }
 
   Future<void> _pause() async {
@@ -215,11 +215,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: const Text("Sound Signature"),
         backgroundColor: Colors.blue,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/mobileback.jpg"),
             fit: BoxFit.cover,
@@ -231,58 +231,53 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               "Status: $wsweb",
-              style: TextStyle(fontSize: 20, color: const Color.fromARGB(255, 0, 0, 0)),
+              style: const TextStyle(
+                  fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
             ),
             _isRecording
-                ? Column(
-              children: [
-                Container(
-                  child: SpinKitWave(
-                    color: Colors.blue,
-                  ),
-                ),
-                Text(
-                  "Processing..",
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-              ],
-            )
+                ? const Column(
+                    children: [
+                      SpinKitWave(
+                        color: Colors.blue,
+                      ),
+                      Text(
+                        "Processing..",
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                    ],
+                  )
                 : Container(),
             _isVerifying
-                ? Column(
-              children: [
-                Container(
-                  child: SpinKitFadingCircle(
-                    color: Colors.blue,
-                  ),
-                ),
-                Text(
-                  "Verifying..",
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-              ],
-            )
+                ? const Column(
+                    children: [
+                      SpinKitFadingCircle(
+                        color: Colors.blue,
+                      ),
+                      Text(
+                        "Verifying..",
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                    ],
+                  )
                 : Container(),
-            Container(
-              child: Text(
-                "$error_msg",
-                style: TextStyle(fontSize: 18, color: Colors.white),
-              ),
+            Text(
+              error_msg,
+              style: const TextStyle(fontSize: 18, color: Colors.black),
             ),
             ElevatedButton(
               onPressed: () {
                 // Add your button action here
               },
-              child: Text(
-                'Custom Action',
-                style: TextStyle(fontSize: 18),
-              ),
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-                onPrimary: Colors.white,
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
+              ),
+              child: const Text(
+                'Custom Action',
+                style: TextStyle(fontSize: 18),
               ),
             ),
           ],

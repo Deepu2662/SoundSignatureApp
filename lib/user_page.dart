@@ -12,13 +12,14 @@ class _UserMainState extends State<UserMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: const Text("Home"),
         backgroundColor: Colors.blue, // Customize the app bar color
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/background_image.jpg"), // Set your background image
+            image: AssetImage(
+                "images/background_image.jpg"), // Set your background image
             fit: BoxFit.cover,
           ),
         ),
@@ -27,7 +28,7 @@ class _UserMainState extends State<UserMain> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "User Page - Login Success",
                 style: TextStyle(
                   fontSize: 24,
@@ -35,17 +36,17 @@ class _UserMainState extends State<UserMain> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   // Add any functionality you want for the button
                 },
-                child: Text(
-                  "Logout",
-                  style: TextStyle(fontSize: 18),
-                ),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.red, // Customize the button color
+                ),
+                child: const Text(
+                  "Logout",
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
             ],
