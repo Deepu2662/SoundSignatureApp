@@ -61,6 +61,7 @@ class _LoginDemoState extends State<LoginDemo> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Login Page"),
+        backgroundColor: Colors.blue,
       ),
       body: Stack(
         children: [
@@ -68,15 +69,9 @@ class _LoginDemoState extends State<LoginDemo> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("images/background_image.jpg"),
+                image: AssetImage("images/mobileback.jpg"),
                 fit: BoxFit.cover,
               ),
-            ),
-          ),
-          // Semi-Transparent Overlay
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.3),
             ),
           ),
           SingleChildScrollView(
@@ -86,19 +81,21 @@ class _LoginDemoState extends State<LoginDemo> {
                 Container(
                   child: Text(
                     "Login",
-                    style: TextStyle(fontSize: 32, color: Colors.white),
+                    style: TextStyle(fontSize: 32, color: const Color.fromARGB(255, 0, 0, 0)),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: TextField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Email',
                       hintText: 'Enter valid email id',
-                      labelStyle: TextStyle(color: Colors.white),
-                      hintStyle: TextStyle(color: Colors.white70),
+                      labelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                      hintStyle: TextStyle(color: const Color.fromARGB(179, 0, 0, 0)),
+                      fillColor: Colors.white,
+                      filled: true,
                     ),
                     onChanged: (e) {
                       email = e;
@@ -108,14 +105,16 @@ class _LoginDemoState extends State<LoginDemo> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: TextField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
                     obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Password',
                       hintText: 'Enter secure password',
-                      labelStyle: TextStyle(color: Colors.white),
-                      hintStyle: TextStyle(color: Colors.white70),
+                      labelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                      hintStyle: TextStyle(color: const Color.fromARGB(179, 0, 0, 0)),
+                      fillColor: Colors.white,
+                      filled: true,
                     ),
                     onChanged: (e) {
                       password = e;
@@ -151,7 +150,7 @@ class _LoginDemoState extends State<LoginDemo> {
                     },
                     child: Text(
                       "New Account - Register",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(fontSize: 18, color: const Color.fromARGB(255, 0, 0, 0)),
                     ),
                   ),
                 ),
